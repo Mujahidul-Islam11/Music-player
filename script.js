@@ -1,19 +1,19 @@
 var arr = [
-  { songName: "Allah-hu-allah-hu", url: "./songs/allah-hu-allah-hu.mp3", img: "https://i.ytimg.com/vi/Zf4ZJ-YK-0U/maxresdefault.jpg" },
+  { songName: "Allah-hu-allah-hu", url: "./songs/allah-hu-allah-hu.mp3", img: "./images/allah-hu.jpg" },
   {
     songName: "Nasheed Ya Adheeman ",
     url: "./songs/Ya-Adheeman.mp3",
-    img: "https://i.ytimg.com/vi/-Y2RwegoDg8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDWxRGgLnso_dCMDI__4nWjULurQw",
+    img: "./images/Nasheed Ya Adheman.jpg",
   },
   {
     songName: "The beauty of existence",
     url: "./songs/the-beauty-of-existence.mp3",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd0GbFMmUaa_K9evl9svKXlFRhC2X93B6GqA&s",
+    img: "./images/the-beauty.jpeg",
   },
   {
     songName: "The Way of The Tears",
     url: "./songs/The Way of The Tears Muhammad al Muqit.mp3",
-    img: "https://i.ytimg.com/vi/YiSQ_db-Dcw/maxresdefault.jpg",
+    img: "./images/the way of the tears.jpg",
   },
 ];
 const allSongsContainer = document.querySelector("#all-songs");

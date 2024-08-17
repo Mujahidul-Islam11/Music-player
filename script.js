@@ -3,7 +3,7 @@ var arr = [
   {
     songName: "Nasheed Ya Adheeman ",
     url: "./songs/Ya-Adheeman.mp3",
-    img: "./images/Nasheed Ya Adheman.jpg",
+    img: "./images/Nasheed-Ya-Adheman.jpg",
   },
   {
     songName: "The beauty of existence",
@@ -13,7 +13,7 @@ var arr = [
   {
     songName: "The Way of The Tears",
     url: "./songs/The Way of The Tears Muhammad al Muqit.mp3",
-    img: "./images/the way of the tears.jpg",
+    img: "./images/the-way-of-the-tears.jpg",
   },
 ];
 const allSongsContainer = document.querySelector("#all-songs");

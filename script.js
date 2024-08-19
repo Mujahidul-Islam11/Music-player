@@ -1,5 +1,9 @@
 var arr = [
-  { songName: "Allah-hu-allah-hu", url: "./songs/allah-hu-allah-hu.mp3", img: "./images/allah-hu.jpg" },
+  {
+    songName: "Allah-hu-allah-hu",
+    url: "./songs/allah-hu-allah-hu.mp3",
+    img: "./images/allah-hu.jpg",
+  },
   {
     songName: "Nasheed Ya Adheeman ",
     url: "./songs/Ya-Adheeman.mp3",
@@ -22,73 +26,74 @@ const play = document.querySelector("#play");
 const forward = document.querySelector("#forward");
 const backward = document.querySelector("#backward");
 
-var audio = new Audio();
-
-// display the song details
+// Display music dynamically
+const audio = new Audio();
 var selectedSong = 0;
 
 function mainFunction() {
   var clutter = "";
-  arr.forEach(function (elem, index) {
-    // clutter = clutter + ``;
-    clutter += `
-        <div class="song-card" id=${index}>
-            <div class="part1">
-                <img src=${elem.img} alt="">
-                <h2>${elem.songName}</h2>
-            </div>
-            <h6>3:56</h6>
-        </div>`;
+  arr.forEach(function (song, index) {
+    clutter += `<div class="song-card" id=${index}>
+    <div class="part1">
+        <img src=${song.img} alt="">
+        <h2>${song.songName}</h2>
+    </div>
+    <h6>3:56</h6>
+</div>`;
   });
-  audio.src = arr[selectedSong].url;
   allSongsContainer.innerHTML = clutter;
   leftPart.style.backgroundImage = `url(${arr[selectedSong].img})`;
+  audio.src = arr[selectedSong].url;
 }
 mainFunction();
 
+// Play music onclick
 allSongsContainer.addEventListener("click", function (details) {
   selectedSong = details.target.id;
-  play.innerHTML = `<i class="ri-pause-mini-line"></i>`;
-  flag = 1;
+  play.innerHTML = ` <i class="ri-pause-mini-line"></i>`;
+  playing = true;
   mainFunction();
   audio.play();
 });
 
-var flag = 0;
+// Music player controlling functionality
+var playing = false;
 play.addEventListener("click", function () {
-  if (flag == 0) {
-    play.innerHTML = `<i class="ri-pause-mini-line"></i>`;
-    flag = 1;
+  if (playing == false) {
+    mainFunction();
     audio.play();
+    play.innerHTML = ` <i class="ri-pause-mini-line"></i>`;
+    playing = true;
   } else {
-    play.innerHTML = `<i class="ri-play-mini-line"></i>`;
-    flag = 0;
+    mainFunction();
     audio.pause();
+    play.innerHTML = ` <i class="ri-play-mini-line"></i>`;
+    playing = false;
   }
 });
 
-forward.addEventListener("click", function () {
-  if (selectedSong < arr.length - 1) {
+forward.addEventListener("click", function(){
+  if(selectedSong < arr.length - 1){
     selectedSong++;
-    play.innerHTML = `<i class="ri-pause-mini-line"></i>`;
-    flag = 1;
+    play.innerHTML = ` <i class="ri-pause-mini-line"></i>`;
+    playing = true;
     mainFunction();
     audio.play();
     backward.style.opacity = 1;
-  } else {
-    forward.style.opacity = 0.5;
+  }else{
+    forward.style.opacity = 0.6;
   }
-});
-
-backward.addEventListener("click", function () {
-  if (selectedSong > 0) {
+})
+backward.addEventListener("click", function(){
+  if(selectedSong > 0){
     selectedSong--;
-    play.innerHTML = `<i class="ri-pause-mini-line"></i>`;
-    flag = 1;
+    play.innerHTML = ` <i class="ri-pause-mini-line"></i>`;
+    playing = true;
     mainFunction();
     audio.play();
     forward.style.opacity = 1;
-  } else {
-    backward.style.opacity = 0.5;
   }
-});
+  else{
+    backward.style.opacity = 0.6;
+  }
+})
